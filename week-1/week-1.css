@@ -92,9 +92,6 @@ body{
         text-align: center;
         overflow: hidden;
         visibility: hidden;
-        /* 為了讓transition能運用animation將選單拉回來，但又不要在一開始就執行，運用paused將動畫暫停 */
-        animation: nav-display;
-        animation-play-state: paused;
         height: 0;
         transition:all 0.5s; 
     }
