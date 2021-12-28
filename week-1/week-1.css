@@ -83,7 +83,7 @@ body{
     }
     @keyframes nav-display {
         0% {height: 0}
-        100% {height: 152px}
+        100% {height: 150px}
     }
     .menu{
         flex: 100%;
@@ -97,7 +97,7 @@ body{
     }
     /* 下拉選單效果 */
     .nav-display{
-        height: 152px;
+        height: 150px;
         visibility: visible;
         animation: nav-display 0.5s;
     }
