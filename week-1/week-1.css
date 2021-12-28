@@ -67,6 +67,7 @@ body{
 @media(max-width: 1200px){
     .gallery{
         width: 90%;
+        justify-content: center;
     }
     .img-location{
         flex-basis: 45%;
