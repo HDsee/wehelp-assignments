@@ -10,13 +10,12 @@ function toggleNavBar(){
 }
 
 const getlist = async () => {
-    axios.get('https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json')
-        .then((res) => {
-            const list = res.data.result.results
+    const res = await fetch('https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json')
+        const data = await res.json()
+            const list = data.result.results
                 for ( let i = listcount; i < listcount +8; i++){
                     const stitle = list[i]['stitle']
-                    let url = 'http' + list[i]['file'].split('http')[1]
-                        a =(url.toLocaleLowerCase()) 
+                    const url = 'http' + list[i]['file'].split('http')[1]
 
                     const imgLocation = document.createElement('div')
                     imgLocation.classList.add('img-location')
@@ -27,7 +26,7 @@ const getlist = async () => {
                     const imgText = document.createElement('div')
                     imgText.classList.add('img-text')
 
-                    imgSelf.setAttribute('src', a)
+                    imgSelf.setAttribute('src', url)
                     imgText.textContent = stitle
                     imgText.setAttribute('title', stitle)
                     imgBase.appendChild(imgSelf)
@@ -35,7 +34,6 @@ const getlist = async () => {
                     gallery.appendChild(imgLocation)
                 }
             listcount +=8
-        })
 }
 ham.addEventListener("click", toggleNavBar)
 loadmore.addEventListener('click', getlist)
