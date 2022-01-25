@@ -6,7 +6,7 @@
 
 使用 SELECT 指令取得 member 資料表中第 2 ~ 4 共三筆資料，並按照 time 欄位，由近到遠排序。( 並非編號 2、3、4 的資料，而是排序後的第 2 ~ 4 筆資料 )
 
-![3-4](https://user-images.githubusercontent.com/93437400/151011961-8de02320-9669-4166-8626-c5b00a2917e0.png)
+![3-4](https://user-images.githubusercontent.com/93437400/151017256-b24bf883-60f1-41a6-ade6-3d64a7184aed.png)
 
 使用 SELECT 指令取得欄位 username 是 test 的會員資料。
 
