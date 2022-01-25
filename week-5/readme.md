@@ -1,8 +1,10 @@
 使用 SELECT 指令取得所有在 member 資料表中的會員資料。
 ![3-2](https://user-images.githubusercontent.com/93437400/151011539-451a7ca4-2886-401e-a567-d69f63eac961.png)
+
 使用 SELECT 指令取得所有在 member 資料表中的會員資料，並按照 time 欄位，由
 近到遠排序。
 ![3-3](https://user-images.githubusercontent.com/93437400/151011947-dc41b0ef-90cd-4c66-a4b7-d95d23d438e0.png)
+
 使用 SELECT 指令取得 member 資料表中第 2 ~ 4 共三筆資料，並按照 time 欄位，
 由近到遠排序。( 並非編號 2、3、4 的資料，而是排序後的第 2 ~ 4 筆資料 )
 ![3-4](https://user-images.githubusercontent.com/93437400/151011961-8de02320-9669-4166-8626-c5b00a2917e0.png)
