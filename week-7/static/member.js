@@ -13,6 +13,9 @@ function searchUser(find){
             const username = data['data']['username']
             searchResult.innerText = `${name}(${username})`
         })
+        .catch(error =>{
+                searchResult.innerText = '無此會員'
+        })
 }
 
 
