@@ -99,7 +99,7 @@ def api_members():
             return data
         else:
             data = {
-                'data':'null'
+                'data': None
             }
             return data
     return redirect('/index')
