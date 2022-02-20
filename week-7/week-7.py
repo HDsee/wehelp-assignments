@@ -28,7 +28,7 @@ def index():
         return redirect('/member')
     return render_template('index.html')
 
-@app.route('/signup', methods=['POST','GET'])
+@app.route('/signup', methods=['POST'])
 def signup():
     name=request.form['username']
     account=request.form['newaccount']
@@ -54,10 +54,7 @@ def signin():
     cursor.execute('select * from member where usename=%s and password=%s',(account,password))
     user = cursor.fetchall()
     if user:
-        userdata=(user[0])
-        username=userdata[1]
         session['user'] = account
-        session['name'] = username
         return redirect('/member')
     if (account == '') or (password == ''):
         return redirect("/error?message=請輸入帳號、密碼")
@@ -67,7 +64,12 @@ def signin():
 @app.route('/member')
 def member():
     if 'user' in session:
-        return render_template('member.html', name=session['name'], username=session['user'])
+        account=session['user']
+        cursor.execute('select * from member where usename=%s',(account,))
+        user = cursor.fetchall()
+        userdata=(user[0])
+        username=userdata[1]
+        return render_template('member.html', name=username, username=session['user'])
     return redirect('/index')
 
 #錯誤頁面
@@ -104,6 +106,23 @@ def api_members():
             return data
     return redirect('/index')
 
+#修改會員姓名
+
+@app.route('/api/member', methods=['POST'])
+def api_membernameupdate():
+    if 'user' in session:
+        data = request.get_json('name')
+        account = session['user']
+        newName = data['name']
+        mysql = 'UPDATE member SET name=%s WHERE usename=%s'
+        cursor.execute(mysql, (newName,account))
+        db.commit()
+
+        data = {'ok': 'True'}
+        return data
+    else:
+        data = {'error': 'True'}
+        return data
 
 #指定埠號
 app.run (port=3000,debug=True)
